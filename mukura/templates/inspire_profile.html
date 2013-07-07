@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ profile.name }}</h1>
+<p>{{ profile.content }}</p>
+
+{% include "post_list_block.html" with post_list=post_list %}
+
+<div class="fb-comments" data-href="http://www.sriharimaneru.com?slug={{profile.slug}}" data-width="470" data-num-posts="10"></div>
+
+{% endblock content %}
+

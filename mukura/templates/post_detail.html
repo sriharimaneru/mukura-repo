@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+
+{% block content_wrapper %}
+<div class="content_wrapper">
+	{% block content %}
+	<div class="content">
+		<div id="post_detail">
+			<h2 id="post_title">{{ post.title }}</h2>
+			<p id="time_stamp_normal">{{post.time_stamp}} By <a href="/about">Srihari Maneru</a></p>
+			<div id="post_content">
+				{{ post.content|safe }}
+			</div>
+			<div class="fb-comments" data-href="http://www.sriharimaneru.com?slug={{post.slug}}" data-width="750" data-num-posts="10" data-colorscheme="dark"></div>
+		</div>
+	</div>
+	{% endblock content %}
+</div>
+{% endblock content_wrapper %}

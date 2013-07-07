@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content_wrapper %}
+<div class="content_wrapper">
+	{% block content %}
+	<div class="content">
+		</br>
+		</br>
+		<div class="list_filter">
+			<h4>Filter posts by Category</h4>
+			{% for category in category_list %}
+				<a href="{{category.1}}">{{category.0}}</a>
+			{% endfor %}
+		</div>
+		{% if is_home%}
+			<h4>Showing all posts</h4>
+		{% else %}
+			<h4>Showing posts under '{{ selected_category }}' <a href="/blog">( Show all )</a></h4> 
+		{% endif %}				
+		{% include "post_list_block.html" with post_list=post_list %}
+	</div>
+	{% endblock content %}
+</div>
+{% endblock content_wrapper %}

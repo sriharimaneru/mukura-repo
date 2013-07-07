@@ -1,0 +1,231 @@
+body{
+	font-family: 'Open Sans',Helvetica,Arial,sans-serif;
+	font-weight: 300;
+	font-size: 16px;
+	line-height: 28px;
+	color: white;
+ }
+
+h2, h3, h4 {
+	font-weight: 300;
+}
+
+h2{
+	font-size: 36px;
+	line-height: 50px;
+}
+
+h3{
+	font-size: 25px;
+	line-height: 35px;
+}
+
+h4{
+	font-size: 16px;
+	color: rgba(255, 255, 255, 0.4);
+}
+
+a{
+	color: #6B9BB2;
+	text-decoration: none;
+}
+
+a:hover{
+	text-decoration: underline;
+}
+
+h3 a {
+	color: white;
+}
+
+.left{
+	float: left;
+}
+
+.right{
+	float: right;
+}
+
+.cB{
+	clear: both;
+}
+
+.content_wrapper {
+	width: 990px;
+	margin: auto;
+	margin-top: 0px;
+}
+
+#navigation{
+	position: fixed;
+	left: 100px;
+	top: 0px;
+	z-index: 1000;
+}
+
+#logo{
+	width: 58px;
+	height: 58px;
+	background: #EF4135;
+	margin: 0px;
+}
+
+#logo img{
+	width: 47px;
+	padding-left: 6px;
+}
+
+#menu{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	/*display: none;*/
+}
+
+#menu li{
+	float: left;
+	background: #333333;
+}
+
+#menu li a {
+	padding: 0px 19px;
+	text-decoration: none;
+	text-transform: uppercase;
+	height: 58px;
+	line-height: 58px;
+	font-size: 14px;
+	color: white;
+}
+
+#menu li a:hover {
+	color: rgb(189, 186, 186);
+}
+
+/************************Home Page***************************/
+
+#home {
+	background: url(../img/home_bg_4.jpg) no-repeat center center fixed; 
+  	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+  	position: fixed;
+  	width: 100%;
+  	height: 100%;
+  	left: 0;
+  	top: 0;
+}
+
+#home_content{
+	position: fixed;
+	top:200px;
+	left: 600px;
+	color: #404040;
+	width: 450px;
+	z-index: 1;
+	font-weight: 800;
+}
+
+#home_content a{
+	color: #054666;
+}
+
+/************************About Page***************************/
+.sub-detail{
+	padding-left: 30px;
+}
+
+/************************Blog Page***************************/
+
+body{
+	background-image: url(../img/paper_bg_dark.gif);
+	background-repeat: repeat;	
+}
+
+.list_filter{
+	padding-bottom: 10px;
+}
+
+.list_filter a{
+	padding-right: 20px;
+}
+
+.list_filter h4{
+	margin-bottom: 5px;
+}
+
+.list_entry{
+	border-bottom: #242323 solid 1px;
+}
+
+.list_entry p{
+	font-size: 11px;
+	margin-bottom: 15px;
+	margin-top: 3px;
+}
+
+.list_entry h3{
+	margin-top: 15px;
+	margin-bottom: 3px;
+}
+
+.time_stamp_tiny{
+	line-height: 10px;
+}
+
+/************************Post Detail Page***************************/
+
+#post_detail{
+	width: 750px;
+	margin: auto;
+}
+
+#post_content{
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+#post_content img{
+	display: block;
+	margin: auto;
+}
+
+#post_title, #time_stamp_normal{
+	text-align: center;
+}
+
+#post_title{
+	padding-top: 50px;
+	margin-bottom: 0px;
+}
+
+
+/************************Travel Page***************************/
+
+/**google map - pathika (wanderer in sanskrit) */
+#pathika {
+  	position: fixed;
+  	width: 100%;
+  	height: 100%;
+  	left: 0;
+  	top: 0;
+  	z-index: 1;
+}
+
+
+/************************Contact Page***************************/
+
+#contact {
+	background: url(../img/contact_bg.jpg) no-repeat center center fixed; 
+  	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+  	position: fixed;
+  	width: 100%;
+  	height: 100%;
+  	left: 0;
+  	top: 0;
+  	z-index: -1;
+}
+

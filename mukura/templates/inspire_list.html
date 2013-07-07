@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content_wrapper %}
+<div class="content_wrapper">
+	{% block content %}
+	<div class="content">
+		</br>
+		</br>
+		<div class="list_filter">
+			<h4>Filter people by Relation</h4>
+			{% for category in category_relation_list %}
+				<a href="{{category.1}}">{{category.0}}</a>
+			{% endfor %}
+		</div>
+		<div class="list_filter">
+			<h4>Filter posts by Field of work</h4>
+			{% for category in category_field_list %}
+				<a href="{{category.1}}">{{category.0}}</a>
+			{% endfor %}
+		</div>
+
+		{% if is_home%}
+			<h4>Showing all who inspire me</h4>
+		{% else %}
+			<h4>Showing all under '{{ selected_category }}' <a href="/blog">( Show all )</a></h4> 
+		{% endif %}		
+
+		{% for profile in profile_list %}
+			<div class="profile_entry">
+				<h1><a href="{{ profile.get_absolute_url }}">{{ profile.name }}</a></h1>
+				<p>{{profile.time_stamp}}</p>
+			</div>
+		{% endfor %}
+	</div>
+	{% endblock content %}
+</div>
+{% endblock content_wrapper %}

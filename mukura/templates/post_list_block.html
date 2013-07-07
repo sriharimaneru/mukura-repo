@@ -1,0 +1,6 @@
+{% for post in post_list %}
+<div class="list_entry">
+<h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+<p class="time_stamp_tiny">{{post.time_stamp}}</p>
+</div>
+{% endfor %}

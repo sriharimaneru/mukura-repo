@@ -1,0 +1,61 @@
+<html>
+<head>
+{% block title %}
+<title>
+	Personal Website of Srihari Maneru
+</title>
+{% endblock title %}
+
+{% block script %}
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	<script>
+	$(function(){
+		$("#menu").delay(4000).hide("slide", { direction: "left" }, 400);
+		$("#navigation").mouseenter(function(){
+			$("#menu").show("slide", { direction: "left" }, 400);
+		}).mouseleave(function(){
+			$("#menu").hide("slide", { direction: "left" }, 400);
+		});
+	});
+	</script>
+
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=672755412741194";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>	
+{% endblock script%}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/less" href="{{ STATIC_URL }}css/style.css" />
+{% endblock %}
+
+</head>
+<body>
+<div id="navigation">
+	<p id="logo" class="left">
+		<a href="/"><img src="{{ STATIC_URL }}img/s.png"></a>
+	</p>
+	<ul id="menu" class="left">
+		<li><a href="/about">About</a></li>
+		<li><a href="/blog">Blog</a></li>
+		<!-- <li><a href="/inspire">Inspire</a></li> -->
+		<li><a href="/travel">Travel</a></li>
+		<li><a href="/contact">Contact</a></li>
+	</ul>
+	<span class="cB"></span>
+</div>
+{% block content_wrapper %}
+<div class="content_wrapper">
+	{% block content %}
+	{% endblock content %}
+</div>
+{% endblock content_wrapper %}
+
+</body>
+</html>
