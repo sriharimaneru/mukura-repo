@@ -19,48 +19,48 @@ class Migration(SchemaMigration):
         ))
         db.send_create_signal('inspire', ['InspireCategory'])
 
-        # Adding model 'InspireDetail'
-        db.create_table('inspire_inspiredetail', (
+        # Adding model 'InspireProfile'
+        db.create_table('inspire_inspireprofile', (
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('name', self.gf('django.db.models.fields.CharField')(max_length=100)),
             ('slug', self.gf('django.db.models.fields.SlugField')(max_length=50)),
             ('content', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
-            ('time_stamp', self.gf('django.db.models.fields.TimeField')(null=True, blank=True)),
+            ('time_stamp', self.gf('django.db.models.fields.DateTimeField')(null=True, blank=True)),
             ('thumbnail', self.gf('django.db.models.fields.files.FileField')(max_length=100, null=True, blank=True)),
             ('one_liner', self.gf('django.db.models.fields.CharField')(max_length=100, null=True, blank=True)),
             ('published', self.gf('django.db.models.fields.BooleanField')(default=False)),
         ))
-        db.send_create_signal('inspire', ['InspireDetail'])
+        db.send_create_signal('inspire', ['InspireProfile'])
 
-        # Adding M2M table for field categories on 'InspireDetail'
-        db.create_table('inspire_inspiredetail_categories', (
+        # Adding M2M table for field categories on 'InspireProfile'
+        db.create_table('inspire_inspireprofile_categories', (
             ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
-            ('inspiredetail', models.ForeignKey(orm['inspire.inspiredetail'], null=False)),
+            ('inspireprofile', models.ForeignKey(orm['inspire.inspireprofile'], null=False)),
             ('inspirecategory', models.ForeignKey(orm['inspire.inspirecategory'], null=False))
         ))
-        db.create_unique('inspire_inspiredetail_categories', ['inspiredetail_id', 'inspirecategory_id'])
+        db.create_unique('inspire_inspireprofile_categories', ['inspireprofile_id', 'inspirecategory_id'])
 
-        # Adding M2M table for field posts on 'InspireDetail'
-        db.create_table('inspire_inspiredetail_posts', (
+        # Adding M2M table for field posts on 'InspireProfile'
+        db.create_table('inspire_inspireprofile_posts', (
             ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
-            ('inspiredetail', models.ForeignKey(orm['inspire.inspiredetail'], null=False)),
+            ('inspireprofile', models.ForeignKey(orm['inspire.inspireprofile'], null=False)),
             ('post', models.ForeignKey(orm['blog.post'], null=False))
         ))
-        db.create_unique('inspire_inspiredetail_posts', ['inspiredetail_id', 'post_id'])
+        db.create_unique('inspire_inspireprofile_posts', ['inspireprofile_id', 'post_id'])
 
 
     def backwards(self, orm):
         # Deleting model 'InspireCategory'
         db.delete_table('inspire_inspirecategory')
 
-        # Deleting model 'InspireDetail'
-        db.delete_table('inspire_inspiredetail')
+        # Deleting model 'InspireProfile'
+        db.delete_table('inspire_inspireprofile')
 
-        # Removing M2M table for field categories on 'InspireDetail'
-        db.delete_table('inspire_inspiredetail_categories')
+        # Removing M2M table for field categories on 'InspireProfile'
+        db.delete_table('inspire_inspireprofile_categories')
 
-        # Removing M2M table for field posts on 'InspireDetail'
-        db.delete_table('inspire_inspiredetail_posts')
+        # Removing M2M table for field posts on 'InspireProfile'
+        db.delete_table('inspire_inspireprofile_posts')
 
 
     models = {
@@ -70,8 +70,8 @@ class Migration(SchemaMigration):
             'content': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'published': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
-            'slug': ('django.db.models.fields.SlugField', [], {'max_length': '50'}),
-            'time_stamp': ('django.db.models.fields.TimeField', [], {'null': 'True', 'blank': 'True'}),
+            'slug': ('django.db.models.fields.SlugField', [], {'unique': 'True', 'max_length': '50'}),
+            'time_stamp': ('django.db.models.fields.DateTimeField', [], {'null': 'True', 'blank': 'True'}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '100'})
         },
         'blog.postcategory': {
@@ -91,8 +91,8 @@ class Migration(SchemaMigration):
             'slug': ('django.db.models.fields.SlugField', [], {'max_length': '50'}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '30'})
         },
-        'inspire.inspiredetail': {
-            'Meta': {'object_name': 'InspireDetail'},
+        'inspire.inspireprofile': {
+            'Meta': {'object_name': 'InspireProfile'},
             'categories': ('django.db.models.fields.related.ManyToManyField', [], {'symmetrical': 'False', 'to': "orm['inspire.InspireCategory']", 'null': 'True', 'blank': 'True'}),
             'content': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
@@ -102,7 +102,7 @@ class Migration(SchemaMigration):
             'published': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
             'slug': ('django.db.models.fields.SlugField', [], {'max_length': '50'}),
             'thumbnail': ('django.db.models.fields.files.FileField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
-            'time_stamp': ('django.db.models.fields.TimeField', [], {'null': 'True', 'blank': 'True'})
+            'time_stamp': ('django.db.models.fields.DateTimeField', [], {'null': 'True', 'blank': 'True'})
         }
     }
 
