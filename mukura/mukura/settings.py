@@ -120,7 +120,8 @@ TEMPLATE_DIRS = (
 
 TEMPLATE_CONTEXT_PROCESSORS = ("django.contrib.auth.context_processors.auth",
                                 "django.core.context_processors.media",
-                                "django.core.context_processors.static",)
+                                "django.core.context_processors.static",
+                                "mukura.context_processors.google_analytics",)
 
 INSTALLED_APPS = (
     'django.contrib.auth',

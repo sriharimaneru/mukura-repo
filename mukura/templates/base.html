@@ -1,10 +1,24 @@
 <html>
 <head>
-{% block title %}
+{% block meta %}
 <title>
-	Personal Website of Srihari Maneru
+	Srihari Maneru
 </title>
-{% endblock title %}
+{% endblock meta %}
+
+{% block ga %}
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', '{{ GOOGLE_SITE_CODE }}']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+{% endblock ga %}
 
 {% block script %}
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
@@ -39,7 +53,7 @@
 <body>
 <div id="navigation">
 	<p id="logo" class="left">
-		<a href="/"><img src="{{ STATIC_URL }}img/s.png"></a>
+		<a href="/"><img src="{{ STATIC_URL }}img/s-1.jpg"></a>
 	</p>
 	<ul id="menu" class="left">
 		<li><a href="/about">About</a></li>
