@@ -27,11 +27,13 @@
 	<script>
 	$(function(){
 		$("#menu").delay(4000).hide("slide", { direction: "left" }, 400);
-		$("#navigation").mouseenter(function(){
-			$("#menu").show("slide", { direction: "left" }, 400);
-		}).mouseleave(function(){
-			$("#menu").hide("slide", { direction: "left" }, 400);
+
+		$("#navigation").hover(function() {
+  			$("#menu").stop(true, true).show("slide", { direction: "left" }, 400);
+		}, function() {
+  			$("#menu").stop(true, true).hide("slide", { direction: "left" }, 400);
 		});
+
 	});
 	</script>
 
